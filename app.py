@@ -4,6 +4,19 @@ import gradio as gr
 # Import our prediction function and saved feature lists.
 from predict import FEATURES, predict_order
 
+# Provide the GPU placeholder required by Hugging Face ZeroGPU.
+# Keep the application working locally when spaces is unavailable.
+try:
+    import spaces
+except ImportError:
+    pass
+else:
+
+    @spaces.GPU
+    def gpu_placeholder():
+        """Placeholder for ZeroGPU startup requirements."""
+        pass
+
 
 # Process one order submitted by the dispatcher.
 def check_order(*values):
