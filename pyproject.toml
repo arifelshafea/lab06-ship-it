@@ -1,0 +1,13 @@
+# Configure pytest to find our tests.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+# Configure Ruff formatting.
+[tool.ruff]
+line-length = 88
+src = [".", "tests"]
+
+# Configure Ruff linting rules.
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
