@@ -19,7 +19,7 @@ This Gradio application predicts the probability that a QuickBite food delivery 
 
 Dispatchers enter order details and receive the probabilities of on-time and late delivery. If the predicted late-delivery probability is at least the saved threshold of 65%, the application recommends offering the customer a $4 voucher.
 
-Space URL: To be added after deployment.
+Space URL: https://huggingface.co/spaces/SaraAly/lab06-ship-it
 
 ## How to run it locally
 
@@ -136,3 +136,18 @@ The model uses only five order-time features. It does not consider courier-speci
 Predicted probabilities are estimates, not guarantees that an order will arrive on time or late.
 
 Dispatchers should use the prediction as decision support when considering a $4 voucher. It should not be used as a guarantee of delivery time or as the sole basis for operational decisions.
+
+## Team Contributions
+
+**[First teammate's name]**
+- To be completed by the team member.
+
+**Sara Aly**
+- Created and configured the public Hugging Face Gradio Space.
+- Uploaded the application files and saved model to Hugging Face.
+- Tested the deployed application and verified that it generates predictions successfully.
+- Ran the automated tests locally and confirmed that all 32 tests passed.
+- Verified that both Ruff checks passed locally.
+
+**[Third teammate's name]**
+- To be completed by the team member.
