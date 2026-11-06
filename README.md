@@ -139,8 +139,16 @@ Dispatchers should use the prediction as decision support when considering a $4 
 
 ## Team Contributions
 
-**[First teammate's name]**
-- To be completed by the team member.
+**Arif Elshafea**
+- **Arif Elshafea — Model Integration, Application Development, and Testing**
+- Developed the original Lab 05 machine learning model used in Lab 06.
+- Integrated the saved model and metadata into the Lab 06 repository.
+- Implemented `predict.py`, including input validation, probability prediction, and the $4 voucher decision.
+- Developed the Gradio web interface in `app.py`.
+- Created automated prediction, validation, and deployment tests.
+- Configured the Conda environment, requirements files, pytest, and Ruff.
+- Prepared the initial README model card and documented the model's limitations.
+- Verified that all 32 automated tests and Ruff checks passed, including from a fresh GitHub clone.
 
 **Sara Aly**
 - Created and configured the public Hugging Face Gradio Space.
