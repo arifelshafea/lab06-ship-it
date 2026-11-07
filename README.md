@@ -114,6 +114,13 @@ The automated test suite verifies:
 - The saved model loads only once.
 - The installed scikit-learn version matches the saved model and requirements.
 - The Gradio version and application file match the README settings.
+- Boundary values at the edge of each allowed range are accepted.
+- Non-dictionary input, extra keys, NaN, infinity, strings, booleans and whole-number floats are handled correctly.
+- Prediction output has the expected keys and is deterministic.
+- Greater distance and snow weather do not reduce the late-delivery probability.
+- The saved model files exist and `model_info.json` contains the required keys.
+
+The full suite now contains 81 tests, and all pass.
 
 From the project root, run:
 
@@ -137,6 +144,11 @@ Predicted probabilities are estimates, not guarantees that an order will arrive 
 
 Dispatchers should use the prediction as decision support when considering a $4 voucher. It should not be used as a guarantee of delivery time or as the sole basis for operational decisions.
 
+Running the tests shows NumPy deprecation warnings that come from the libraries when the saved model is loaded. They do not affect results, but pinning the NumPy version in `requirements.txt` would protect the application from breaking when libraries update.
+
+`validate_order()` currently rejects whole-number floats such as `items: 3.0` and NumPy integers such as `np.int64`, because it checks `type(...) is int`. Gradio number inputs can return floats, so accepting whole-number values and converting them to `int` would be safer. Extra keys in an order are silently ignored.
+
+
 ## Team Contributions
 
 **Arif Elshafea**
@@ -157,5 +169,10 @@ Dispatchers should use the prediction as decision support when considering a $4 
 - Ran the automated tests locally and confirmed that all 32 tests passed.
 - Verified that both Ruff checks passed locally.
 
-**[Third teammate's name]**
-- To be completed by the team member.
+**Devashree Paranjape**
+- Wrote additional automated tests for model testing in four new files: `test_validation.py`, `test_predict_behavior.py`, `test_model_behavior.py` and `test_artifacts.py`.
+- Added tests for exact boundary values (for example distance 0.1 and 30, items 1 and 20, hours 10 and 22) and for unusual input types, including NaN, infinity, strings, booleans, whole-number floats and wrong-case categories.
+- Added tests for the prediction output (required keys, float probability between 0 and 1, deterministic results, input not modified) and for model behavior (greater distance and snow do not lower the late probability, and every weather and day-type combination produces a valid prediction).
+- Added tests that check that the saved model files exist and that `model_info.json` contains the keys `predict.py` needs.
+- Reviewed the existing tests to avoid duplicating them, ran the full suite locally (81 tests passed) and recorded the library warnings.
+- Reviewed `predict.py` and suggested improvements (see Limitations).
