@@ -162,6 +162,8 @@ Running the tests shows NumPy deprecation warnings that come from the libraries 
 - Prepared the initial README model card and documented the model's limitations.
 - Verified that all 32 automated tests and Ruff checks passed, including from a fresh GitHub clone.
 
+- **AI Use:** Used ChatGPT to help troubleshoot Python coding errors, clarify technical questions, organize my work, and review the language and formatting of the documentation. All code changes and results were reviewed and tested.
+
 **Sara Aly**
 - Created and configured the public Hugging Face Gradio Space.
 - Uploaded the application files and saved model to Hugging Face.
